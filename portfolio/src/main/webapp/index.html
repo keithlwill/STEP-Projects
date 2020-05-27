@@ -1,18 +1,122 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="UTF-8">
-    <title>My Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Keith Williams Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <script src="script.js"></script>
-  </head>
-  <body>
-    <div id="content">
-      <h1>My Portfolio</h1>
-      <p>This is my portfolio.</p>
-      <p>Click here to get a random message:</p>
-      <button onclick="addRandomGreeting()">Hello</button>
-      <div id="greeting-container"></div>
-    </div>
-  </body>
+</head>
+
+<body>
+    <header>
+        <nav class = "nav-bar">
+            <ul class = "nav-list">
+                <li>
+                    <a href="#top" class="nav-link">Home</a>
+                </li>
+                <li>
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li>
+                    <a href="#skills" class="nav-link">Skills</a>
+                </li>
+                <li>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+                <li>
+                    <a href="https://drive.google.com/file/d/1VZJ9ii5GuOdE2d3M2-93fzX6cqlepykJ/view?usp=sharing" target="_blank" class="nav-link">Resume</a>
+                </li>
+            </ul>
+        </nav>
+        <div class = "intro-name">
+            <h1>Keith Williams</h1>
+            <h6>Sophomore @ Duke University</h6>
+        </div>
+    </header>
+
+    <section class="about" id="about">
+        <div class="container">
+            <div class="img-of-me">
+                <img src = images/websiteMe.jpeg>
+            </div>
+            <div class="about-details">
+                <div class="about-heading">
+                    <h1>About</h1>
+                    <h6>Myself</h6>
+                </div>
+                <p>
+                    Hi! My name is Keith and I'm a rising sophomore at Duke University.
+                    I'm intending to major in computer science. Right now, Right now, 
+                    I'm working at a virtual summer internship with Google as a STEP intern.
+                    My current focus is completing a series of mini-projects that will help me
+                    hone my skills in web development.
+                    When I'm not working, I like to watch anime, play video games, and play basketball. 
+                </p>
+            </div>
+
+            <div class = random-greeting>
+                <p>Click here to get a random message:</p>
+                <button onclick="addRandomGreeting()">Click me!</button>
+                <div id="greeting-container"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class = "experience" id = "experience">
+        <div class="container">
+            <div class="section-heading">
+                <h1>Work Experience</h1>
+                <h6>Past and current jobs/internships</h6>
+            </div>
+        </div>
+    </section>
+
+    <section class = "skills">
+        <div class="section-heading">
+                <h1>My Skills</h1>
+        </div>
+    </section>
+
+    <section class = "contact" id = "contact">
+        <div class="container">
+            <div class="section-heading">
+                <h1>Contact Me</h1>
+                <h6>Let's work together!</h6>
+            </div>
+        <div class = "social-media">
+            <ul class = "nav-list">
+                <li>
+                    <a href="https://www.linkedin.com/in/keith-williams-81888a197/" target = "_blank" class = "icon-link">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.facebook.com/profile.php?id=100010483590337" target = "_blank" class ="icon-link">
+                        <i class="fab fa-facebook-square"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/keithblah/" target = "_blank" class = "icon-link">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/keithblah" target = "_blank" class = "icon-link">
+                        <i class="fab fa-twitter-square"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto: keith.will247@gmail.com"  class = "icon-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+
+</body>
 </html>
