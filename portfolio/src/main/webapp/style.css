@@ -109,14 +109,41 @@ img{
 
 /*General Stuff End */
 
-
-
-#about{
-  margin-left: auto;
-  margin-right: auto;
-  width: 650px;
+/*about section begin*/
+.about .container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-#greeting-container {
-  margin-top: 20px;
+.about-heading{
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 0;
+  margin-bottom: 6rem;
+}
+
+.about-heading h1{
+  font-size: 10rem;
+  opacity: .3;
+}
+
+.about-heading h6{
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+.about-details{
+  flex: 1;
+}
+
+.img-of-me{
+  flex: 1;
+  margin-right: 5rem;
+}
+
+.greeting .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
