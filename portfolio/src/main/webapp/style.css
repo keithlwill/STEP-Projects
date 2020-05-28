@@ -1,3 +1,116 @@
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('fonts/helveticaneue-webfont.woff2') format('woff2'),
+       url('fonts/helveticaneue-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('fonts/roboto-webfont.woff2') format('woff2'),
+         url('fonts/roboto-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  /* General Stuff */
+
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 10px;
+    font-family: 'Roboto', sans-serif;
+    color: rgb(0, 0, 0);
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    background: whitesmoke no-repeat center fixed;
+    background-size: cover;
+}
+
+section{
+    padding: 6rem 0;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+p{
+    font-size: 1.8rem;
+    font-weight: 30;
+}
+
+img{
+    width: 100%;
+}
+
+.container{
+  width: 90%;
+  max-width: 120rem;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.section-heading{
+  text-align: center;
+  margin-bottom: 10rem;
+}
+
+.section-heading h1{
+  font-size: 3.5rem;
+  color: rgb(54, 54, 54);
+  text-transform: uppercase;
+  font-weight: 600;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.section-heading h1::before,
+.section-heading h1::after{
+  content: '';
+  position: absolute;
+  bottom: -.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(17, 57, 235, 0.75);;
+}
+
+.section-heading h1::before{
+  width: 10rem;
+  height: 3px;
+  border-radius: .8rem;
+}
+
+.section-heading h1::after{
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 100%;
+  bottom: -1rem;
+}
+
+.section-heading h6{
+  font-size: 1.6rem;
+  font-weight: 300;
+}
+
+.has-margin-right{
+  margin-right: 5rem;
+}
+
+/*General Stuff End */
+
+
+
 #about{
   margin-left: auto;
   margin-right: auto;
