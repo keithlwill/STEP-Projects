@@ -4,6 +4,7 @@
        url('fonts/helveticaneue-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
+}
 
 @font-face {
     font-family: 'Roboto';
@@ -146,3 +147,24 @@ img{
   align-items: center;
   justify-content: center;
 }
+/*contact end*/
+
+/*random image begin */
+.random-img #content {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  max-height: 20%;
+}
+
+.random-img img{
+  max-height: 800px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* random image end */
