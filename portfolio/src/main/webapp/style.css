@@ -355,7 +355,6 @@ li{
   justify-content: center;
   position: relative;
   text-align: center;
-  max-height: 20%;
 }
 
 .random-img img{
@@ -365,4 +364,14 @@ li{
   margin-right: auto;
 }
 /* random image end */
+
+/* servlet begin */
+.servlet #content{
+    display: grid;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+}
+/* servlet end*/
 
