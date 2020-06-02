@@ -15,18 +15,38 @@
 package com.google.sps.servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/** Servlet that returns some example content. TODO: modify this file to handle comments data */
-@WebServlet("/data")
-public class DataServlet extends HttpServlet {
+/** Servlet that returns a random meal. */
+@WebServlet("/random-meal")
+public final class RandomMealServlet extends HttpServlet {
+
+  private List<String> meals;
+
+  @Override
+  public void init() {
+    meals = new ArrayList<>();
+    meals.add("Fettucine Alfredo");
+    meals.add("BBQ Bacon Burger with fries and a shake");
+    meals.add("Arroz con Frijoles");
+    meals.add("Arroz con Pollo");
+    meals.add("Quesadillas");
+    meals.add("Pancakes and Bacon");
+    meals.add("Five Cheese Ziti");
+    meals.add("Grilled Cheese and Tomato Soup");
+    meals.add("BBQ Pulled Pork and Mac n Cheese");
+  }
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    String meal = meals.get((int) (Math.random() * meals.size()));
+
     response.setContentType("text/html;");
-    response.getWriter().println("<h1>Hello Keith!</h1>");
+    response.getWriter().println(meal);
   }
 }
