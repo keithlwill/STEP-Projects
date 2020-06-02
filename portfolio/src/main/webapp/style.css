@@ -368,10 +368,10 @@ li{
 /* servlet begin */
 .servlet #content{
     display: grid;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  text-align: center;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
 }
 /* servlet end*/
 

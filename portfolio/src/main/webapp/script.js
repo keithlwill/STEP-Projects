@@ -41,3 +41,9 @@ function randomizeImage() {
   imageContainer.innerHTML = '';
   imageContainer.appendChild(imgElement);
 }
+
+async function getRandomMealUsingAsyncAwait() {
+  const response = await fetch('/random-meal');
+  const quote = await response.text();
+  document.getElementById('meal-container').innerText = quote;
+}
