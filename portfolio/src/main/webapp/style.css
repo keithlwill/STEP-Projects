@@ -107,6 +107,14 @@ img{
   margin-right: 5rem;
 }
 
+.content {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+}
+
 /*General Stuff End */
 
 /*navbar begin*/
@@ -349,14 +357,6 @@ li{
 /*contact end*/
 
 /*random image begin */
-.random-img #content {
-  display: grid;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  text-align: center;
-}
-
 .random-img img{
   max-height: 800px;
   max-width: 800px;
@@ -366,12 +366,6 @@ li{
 /* random image end */
 
 /* servlet begin */
-.servlet #content{
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    text-align: center;
-}
+
 /* servlet end*/
 
