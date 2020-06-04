@@ -39,6 +39,7 @@ function randomizeImage() {
   const imageContainer = document.getElementById('random-image-container');
   // Remove the previous image.
   imageContainer.innerHTML = '';
+  //Add randomly selected image
   imageContainer.appendChild(imgElement);
 }
 
@@ -61,13 +62,10 @@ function createListElement(text) {
 function getComments() {
   fetch('/data').then(response => response.json()).then((comments) => {
     console.log(comments)
-    const commentElement = document.getElementById('JSON-container');
-    commentElement.innerHTML = '';
-    commentElement.appendChild(
-        createListElement(comments[0]));
-    commentElement.appendChild(
-        createListElement(comments[1]));
-    commentElement.appendChild(
-        createListElement(comments[2]));
+    const commentElement = document.getElementById('comments-container');
+
+    comments.forEach((indComment) => {
+        commentElement.appendChild(createListElement(indComment));
+    });
   });
 }

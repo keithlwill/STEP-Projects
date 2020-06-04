@@ -34,9 +34,9 @@ public final class DataServlet extends HttpServlet {
   @Override
   public void init() {
     comments = new ArrayList<>();
-    comments.add("This website contains HTML");
-    comments.add("This website contains CSS");
-    comments.add("This website contains JavaScript");
+    comments.add("Comment #1");
+    comments.add("Comment #2");
+    comments.add("Comment #3");
   }
 
   @Override
@@ -47,6 +47,27 @@ public final class DataServlet extends HttpServlet {
     //Send JSON as response
     response.setContentType("applications/json;");
     response.getWriter().println(json);
+  }
+
+  @Override
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+      //get input from form in correct format
+      String userComment = getComment(request);
+      comments.add(userComment);
+
+      //redirect back to HTML page
+      response.sendRedirect("/index.html");
+  }
+
+    /*returns comment inputted into form in correct format*/
+  private String getComment(HttpServletRequest request) {
+      //get name from form
+      String name = request.getParameter("name");
+      //get comment from form
+      String comment = request.getParameter("comment");
+
+      String ret = name + " says: " + comment;
+      return ret;
   }
 
   private String convertToJsonUsingGson(ArrayList<String> list) {

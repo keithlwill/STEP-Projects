@@ -366,6 +366,26 @@ li{
 /* random image end */
 
 /* servlet begin */
-
+.servlet html {
+    font-size: 1.6rem;
+}
 /* servlet end*/
 
+/*comment section begin*/
+.comments html, label, input {
+    font-size: 1.6rem;
+}
+
+.comments label {
+    float: left;
+}
+
+.comments .content {
+    align-items: left;
+}
+
+#comments-container {
+    margin-top: 2rem;
+    font-size: 1.6rem;
+}
+/*comment section end*/
