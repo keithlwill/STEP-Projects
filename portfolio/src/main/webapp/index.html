@@ -169,7 +169,7 @@
             <div class="section-heading">
                 <h1>What I Love To Do</h1>
             </div>
-            <div id ="content">
+            <div class ="content">
                 <p>Click here to see a random picture of me doing something that I love:</p>
                 <button onclick="randomizeImage()">click</button>
                 <div id="random-image-container"></div>
@@ -180,12 +180,25 @@
     <section>
         <div class = "servlet">
             <div class =  "section-heading">
-            <h1>Servlet Development</h1>
+                <h1>Servlet Development</h1>
             </div>
-            <div id = "content">
-            <p>Click here to fetch one of my favorite meals from a servlet!</p>
-            <button onclick="getRandomMealUsingAsyncAwait()">Fetch a meal!</button>
-            <div id = "meal-container"></div>
+            <div class = "content">
+                <p>Click here to fetch one of my favorite meals from a servlet!</p>
+                <button onclick="getRandomMealUsingAsyncAwait()">Fetch a meal!</button>
+                <div id = "meal-container"></div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class = "JSON">
+            <div class = "section-heading">
+                <h1>JSON Practice</h1>
+            </div>
+            <div class = "content">
+                <p>Click here to fetch some hard-coded JSON data</p>
+                <button onclick = "getComments()">Fetch JSON!</button>
+                <ul id = "JSON-container"></ul>
             </div>
         </div>
     </section>

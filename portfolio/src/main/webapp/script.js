@@ -47,3 +47,27 @@ async function getRandomMealUsingAsyncAwait() {
   const quote = await response.text();
   document.getElementById('meal-container').innerText = quote;
 }
+
+/** Creates an <li> element containing text. */
+function createListElement(text) {
+  const liElement = document.createElement('li');
+  liElement.innerText = text;
+  return liElement;
+}
+
+/**
+ * Fetches comments from the servers and adds them to the DOM.
+ */
+function getComments() {
+  fetch('/data').then(response => response.json()).then((comments) => {
+    console.log(comments)
+    const commentElement = document.getElementById('JSON-container');
+    commentElement.innerHTML = '';
+    commentElement.appendChild(
+        createListElement(comments[0]));
+    commentElement.appendChild(
+        createListElement(comments[1]));
+    commentElement.appendChild(
+        createListElement(comments[2]));
+  });
+}
