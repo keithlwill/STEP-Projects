@@ -10,7 +10,7 @@
     <script src="script.js"></script>
 </head>
 
-<body onload = "getComments()">
+<body onload = "loadCommentsFromDatastore()">
     <header>
         <nav class = "nav-bar">
             <ul class = "nav-list">
@@ -197,19 +197,20 @@
                 <h6>Leave a comment!</h6>
             </div>
             <div class = "content">
-                <form action = "/new-comment" method = "POST">
-                    <label for="name">Enter your name:</label>
-                    <br>
-                    <input type="text" id="name" name="name" placeholder="Type name here..." required>
-                    <br>
-                    <label for="comment">Enter your comment:</label>
-                    <br>
-                    <input type="text" id="comment" name="comment" placeholder="Type comment here..." required>
-                    <br>
-                    <br>
+                    <form action = "/new-comment" method = "POST">
+                        <label for="name">Enter your name:</label>
+                        <br>
+                        <input type="text" id="name" name="name" placeholder="Type name here..." required>
+                        <br>
+                        <br>
+                        <label for="comment">Enter your comment:</label>
+                        <br>
+                        <input type="text" id="comment" name="comment" placeholder="Type comment here..." required>
+                        <br>
+                        <br>
 
-                    <input type="submit">
-                </form>
+                        <input type="submit">
+                    </form>
                 <ul id = "comments-container"></ul>
                 <a href="/_ah/admin">View Datastore</a>
             </div>

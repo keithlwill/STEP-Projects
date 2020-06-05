@@ -376,16 +376,14 @@ li{
     font-size: 1.6rem;
 }
 
-.comments label {
-    float: left;
-}
-
-.comments .content {
-    align-items: left;
-}
-
 #comments-container {
     margin-top: 2rem;
     font-size: 1.6rem;
+    overflow: hidden;
+}
+
+.comments ul {
+    float: left;
+    display: grid;
 }
 /*comment section end*/
