@@ -60,9 +60,11 @@ function createListElement(text) {
  * Loads entities from the datastore and adds them to the DOM.
  */
 function loadCommentsFromDatastore() {
-  fetch('/list-comments').then(response => response.json()).then((comments) => {
+  let value = document.getElementById('num-comments').value;  
+  fetch(`/list-comments?num-comments=${value}`).then(response => response.json()).then((comments) => {
     console.log(comments)
     const commentElement = document.getElementById('comments-container');
+    commentElement.innerHTML = '';
     comments.forEach((indComment) => {
       commentElement.appendChild(createListElement(indComment.name + " says: " + indComment.content));
     })
