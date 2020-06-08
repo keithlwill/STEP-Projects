@@ -71,6 +71,11 @@ function loadCommentsFromDatastore() {
   });
 }
 
+function deleteAllComments() {
+    fetch('/delete-data', { method: "POST"});
+    loadCommentsFromDatastore();
+}
+
 /**
  * Fetches comments from the servers and adds them to the DOM.
  */

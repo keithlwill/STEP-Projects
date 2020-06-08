@@ -34,6 +34,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/list-comments")
 public class ListCommentsServlet extends HttpServlet {
 
+  //Retrieve comments from datastore, convert them to JSON so they can be displayed in the webapp
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     Query query = new Query("Entry").addSort("timestamp", SortDirection.DESCENDING);
@@ -42,15 +43,8 @@ public class ListCommentsServlet extends HttpServlet {
     PreparedQuery results = datastore.prepare(query);
 
     String numCommentsString = request.getParameter("num-comments");
-
-    //convert request parameter to int
-    int numComments = 0;
-    try {
-    numComments = Integer.parseInt(numCommentsString);
-    } catch (NumberFormatException e) {
-        System.err.println("Could not convert to int: " + numCommentsString);
-    }
     
+    int numComments = commentsDisplayed(request);
     int display = 0;
 
     List<Entry> comments = new ArrayList<>();
@@ -72,4 +66,19 @@ public class ListCommentsServlet extends HttpServlet {
     response.setContentType("application/json;");
     response.getWriter().println(gson.toJson(comments));
   }
+
+  //helper function, convert requested number of comments to display to an int value
+  public int commentsDisplayed(HttpServletRequest request) {
+    //display request
+    String numCommentsString = request.getParameter("num-comments");  
+    int numComments = 0;
+
+    try {
+    numComments = Integer.parseInt(numCommentsString);
+    } catch (NumberFormatException e) {
+        System.err.println("Could not convert to int: " + numCommentsString);
+    }
+    return numComments;
+  }
+
 }
