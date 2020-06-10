@@ -41,15 +41,31 @@ public class ListCommentsServlet extends HttpServlet {
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     PreparedQuery results = datastore.prepare(query);
 
+    String numCommentsString = request.getParameter("num-comments");
+
+    //convert request parameter to int
+    int numComments = 0;
+    try {
+    numComments = Integer.parseInt(numCommentsString);
+    } catch (NumberFormatException e) {
+        System.err.println("Could not convert to int: " + numCommentsString);
+    }
+    
+    int index = 0;
+
     List<Entry> comments = new ArrayList<>();
     for (Entity entity : results.asIterable()) {
-      long id = entity.getKey().getId();
-      String name = (String) entity.getProperty("name");
-      String content = (String) entity.getProperty("content");
-      long timestamp = (long) entity.getProperty("timestamp");
+        if (index >= numComments) {
+            break;
+        }
+        long id = entity.getKey().getId();
+        String name = (String) entity.getProperty("name");
+        String content = (String) entity.getProperty("content");
+        long timestamp = (long) entity.getProperty("timestamp");
 
-      Entry commentToAdd = new Entry(id, name, content, timestamp);
-      comments.add(commentToAdd);
+        Entry commentToAdd = new Entry(id, name, content, timestamp);
+        comments.add(commentToAdd);
+        index ++;
     }
 
     Gson gson = new Gson();
