@@ -41,8 +41,6 @@ public class ListCommentsServlet extends HttpServlet {
 
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     PreparedQuery results = datastore.prepare(query);
-
-    String numCommentsString = request.getParameter("num-comments");
     
     int numComments = commentsDisplayed(request);
 
