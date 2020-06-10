@@ -10,7 +10,7 @@
     <script src="script.js"></script>
 </head>
 
-<body>
+<body onload = "loadCommentsFromDatastore()">
     <header>
         <nav class = "nav-bar">
             <ul class = "nav-list">
@@ -191,14 +191,28 @@
     </section>
 
     <section>
-        <div class = "JSON">
+        <div class = "comments">
             <div class = "section-heading">
-                <h1>JSON Practice</h1>
+                <h1>Comment Section</h1>
+                <h6>Leave a comment!</h6>
             </div>
             <div class = "content">
-                <p>Click here to fetch some hard-coded JSON data</p>
-                <button onclick = "getComments()">Fetch JSON!</button>
-                <ul id = "JSON-container"></ul>
+                    <form action = "/new-comment" method = "POST">
+                        <label for="name">Enter your name:</label>
+                        <br>
+                        <input type="text" id="name" name="name" placeholder="Type name here..." required>
+                        <br>
+                        <br>
+                        <label for="comment">Enter your comment:</label>
+                        <br>
+                        <input type="text" id="comment" name="comment" placeholder="Type comment here..." required>
+                        <br>
+                        <br>
+
+                        <input type="submit">
+                    </form>
+                <ul id = "comments-container"></ul>
+                <a href="/_ah/admin">View Datastore</a>
             </div>
         </div>
     </section>
