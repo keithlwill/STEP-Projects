@@ -45,20 +45,22 @@ public class ListCommentsServlet extends HttpServlet {
     String numCommentsString = request.getParameter("num-comments");
     
     int numComments = commentsDisplayed(request);
-    int display = 0;
+
+    int index = 0;
 
     List<Entry> comments = new ArrayList<>();
     for (Entity entity : results.asIterable()) {
-        if (display < numComments) {
-            long id = entity.getKey().getId();
-            String name = (String) entity.getProperty("name");
-            String content = (String) entity.getProperty("content");
-            long timestamp = (long) entity.getProperty("timestamp");
-
-            Entry commentToAdd = new Entry(id, name, content, timestamp);
-            comments.add(commentToAdd);
+        if (index >= numComments) {
+            break;
         }
-        display ++;
+        long id = entity.getKey().getId();
+        String name = (String) entity.getProperty("name");
+        String content = (String) entity.getProperty("content");
+        long timestamp = (long) entity.getProperty("timestamp");
+
+        Entry commentToAdd = new Entry(id, name, content, timestamp);
+        comments.add(commentToAdd);
+        index ++;
     }
 
     Gson gson = new Gson();
@@ -80,5 +82,4 @@ public class ListCommentsServlet extends HttpServlet {
     }
     return numComments;
   }
-
 }
