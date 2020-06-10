@@ -75,17 +75,3 @@ function deleteAllComments() {
     fetch('/delete-data', { method: "POST"});
     loadCommentsFromDatastore();
 }
-
-/**
- * Fetches comments from the servers and adds them to the DOM.
- */
-function getComments() {
-  fetch('/data').then(response => response.json()).then((comments) => {
-    console.log(comments)
-    const commentElement = document.getElementById('comments-container');
-
-    comments.forEach((indComment) => {
-        commentElement.appendChild(createListElement(indComment));
-    });
-  });
-}
