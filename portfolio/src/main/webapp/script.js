@@ -75,3 +75,30 @@ function deleteAllComments() {
     fetch('/delete-data', { method: "POST"});
     loadCommentsFromDatastore();
 }
+
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+/** Creates a chart and adds it to the page. */
+function drawChart() {
+  const data = new google.visualization.DataTable();
+  data.addColumn('string', 'Class');
+  data.addColumn('number', 'Count');
+        data.addRows([
+          ['Math', 2],
+          ['Computer Science', 2],
+          ['Writing', 1],
+          ['Music', 2],
+          ['Morality', 2]
+        ]);
+
+  const options = {
+    'title': 'Classes I have taken at Duke',
+    'width':500,
+    'height':400
+  };
+
+  const chart = new google.visualization.PieChart(
+      document.getElementById('chart-1'));
+  chart.draw(data, options);
+}

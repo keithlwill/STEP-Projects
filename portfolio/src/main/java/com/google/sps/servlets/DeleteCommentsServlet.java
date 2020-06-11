@@ -45,8 +45,8 @@ public class DeleteCommentsServlet extends HttpServlet {
 
     //loop through comments in datastore and remove them
     for (Entity entity : results.asIterable()) {
-        Key Key = entity.getKey();
-        datastore.delete(Key);
+        Key key = entity.getKey();
+        datastore.delete(key);
     }
   }
 }
