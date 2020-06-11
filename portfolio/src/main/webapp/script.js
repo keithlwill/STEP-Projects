@@ -70,3 +70,8 @@ function loadCommentsFromDatastore() {
     })
   });
 }
+
+function deleteAllComments() {
+    fetch('/delete-data', { method: "POST"});
+    loadCommentsFromDatastore();
+}

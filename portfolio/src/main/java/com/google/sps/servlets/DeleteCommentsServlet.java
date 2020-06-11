@@ -17,33 +17,36 @@ package com.google.sps.servlets;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.PreparedQuery;
+import com.google.appengine.api.datastore.Query;
+import com.google.appengine.api.datastore.Query.SortDirection;
+import com.google.appengine.api.datastore.Key;
+import com.google.appengine.api.datastore.KeyFactory;
+import com.google.gson.Gson;
+import com.google.sps.data.Entry;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/** Servlet responsible for creating new tasks. */
-@WebServlet("/new-comment")
-public class NewCommentServlet extends HttpServlet {
+/** Servlet responsible for deleting all comments. */
+@WebServlet("/delete-data")
+public class DeleteCommentsServlet extends HttpServlet {
 
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    // grabs input from new comment  
-    String name = request.getParameter("name");
-    String content = request.getParameter("comment");
-    long timestamp = System.currentTimeMillis();
+    Query query = new Query("Entry");
 
-    //comment is represented as an Entity of name "entry" in datastore
-    Entity commentEntity = new Entity("Entry");
-    commentEntity.setProperty("name", name);
-    commentEntity.setProperty("content", content);
-    commentEntity.setProperty("timestamp", timestamp);
-
-    //put comment in datastore
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-    datastore.put(commentEntity);
+    PreparedQuery results = datastore.prepare(query);
 
-    response.sendRedirect("/index.html");
+    //loop through comments in datastore and remove them
+    for (Entity entity : results.asIterable()) {
+        Key Key = entity.getKey();
+        datastore.delete(Key);
+    }
   }
 }
