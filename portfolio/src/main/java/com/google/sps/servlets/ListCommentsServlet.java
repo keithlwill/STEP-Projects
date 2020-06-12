@@ -68,7 +68,7 @@ public class ListCommentsServlet extends HttpServlet {
   }
 
   //helper function, convert requested number of comments to display to an int value
-  public int commentsDisplayed(HttpServletRequest request) {
+  private int commentsDisplayed(HttpServletRequest request) {
     //display request
     String numCommentsString = request.getParameter("num-comments");  
     int numComments = 0;
