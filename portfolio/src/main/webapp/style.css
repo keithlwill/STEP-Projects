@@ -391,3 +391,11 @@ li{
 /*charts begin*/
 
 /*charts end*/
+
+/*maps begin*/
+#map {
+  border: thin solid black;
+  height: 500px;
+  width: 500px;
+}
+/*maps end*/
