@@ -12,6 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+
+/**
+ * Have one function call what is necessary when the page loads.
+ */
+function start() {
+    loadCommentsFromDatastore();
+    createMap();
+}
+
 /**
  * Adds a random greeting to the page.
  */
@@ -101,4 +110,11 @@ function drawChart() {
   const chart = new google.visualization.PieChart(
       document.getElementById('chart-1'));
   chart.draw(data, options);
+}
+
+function createMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 15, lng: -86},
+        zoom: 5
+    });
 }
