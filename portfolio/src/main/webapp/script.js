@@ -112,9 +112,27 @@ function drawChart() {
   chart.draw(data, options);
 }
 
+/** creates map to add to page */
 function createMap() {
     map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: 15, lng: -86},
-        zoom: 5
+        center: {lat: 33.125866, lng: -96.663563},
+        zoom: 10
     });
+
+    addLandmark(map, 33.197802, -96.616136, "Square Burger");
+    addLandmark(map, 33.151713, -96.866428, "KPop Burger");
+    addLandmark(map, 33.180836, -96.617858, "A&D Buffalo's");
+    addLandmark(map, 33.206875, -96.732323, "Italian Garden");
+    addLandmark(map, 32.950851, -96.821050, "Hopdoddy Burger Bar");
+    addLandmark(map, 33.079834, -96.826410, "Shake Shack");
+    addLandmark(map, 33.118615, -96.670386, "Cracker Barrel");
+    addLandmark(map, 33.101330, -96.687269, "Torchy's Tacos");
+    addLandmark(map, 33.102240, -96.676335, "Krispy Kreme");
+    addLandmark(map, 33.040658, -96.735441, "Wing Stop");
+}
+
+/** Adds a marker **/
+function addLandmark(map, lat, lng, title) {
+  const marker = new google.maps.Marker(
+      {position: {lat: lat, lng: lng}, map: map, title: title});
 }
