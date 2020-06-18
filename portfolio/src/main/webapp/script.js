@@ -12,15 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
-/**
- * Have one function call what is necessary when the page loads.
- */
-function start() {
-    loadCommentsFromDatastore();
-    createMap();
-}
-
 /**
  * Adds a random greeting to the page.
  */
